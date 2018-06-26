@@ -24,7 +24,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/img01.jpg" alt="Product"></a></td>
+                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img01.jpg" alt="Product"></a></td>
                       <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
                         <small><a href="#">Color : Red</a></small><br>
                         <small><a href="#">Size : M</a></small></td>
@@ -35,7 +35,7 @@
                       <td class="action"><a href="#"><i class="icon-close"></i></a></td>
                     </tr>
                     <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/img02.jpg" alt="Product"></a></td>
+                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img02.jpg" alt="Product"></a></td>
                       <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
                         <small><a href="#">Color : Green</a></small><br>
                         <small><a href="#">Size : XL</a></small></td>
@@ -46,7 +46,7 @@
                       <td class="action"><a href="#"><i class="icon-close"></i></a></td>
                     </tr>
                     <tr>
-                      <td class="cart_product"><a href="#"><img src="images/products/img03.jpg" alt="Product"></a></td>
+                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img03.jpg" alt="Product"></a></td>
                       <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
                         <small><a href="#">Color : Blue</a></small><br>
                         <small><a href="#">Size : S</a></small></td>

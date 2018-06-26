@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon  -->
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="public/source/favicon.ico">
 
   <!-- Google Fonts -->
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' rel='stylesheet' type='text/css'>
@@ -27,29 +27,31 @@
   <!-- CSS Style -->
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/source/css/bootstrap.min.css">
 
   <!-- font-awesome & simple line icons CSS -->
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
-  <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css" media="all">
+  <link rel="stylesheet" type="text/css" href="public/source/css/font-awesome.css" media="all">
+  <link rel="stylesheet" type="text/css" href="public/source/css/simple-line-icons.css" media="all">
 
   <!-- owl.carousel CSS -->
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-  <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
+  <link rel="stylesheet" type="text/css" href="public/source/css/owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="public/source/css/owl.theme.css">
 
   <!-- animate CSS  -->
-  <link rel="stylesheet" type="text/css" href="css/animate.css" media="all">
+  <link rel="stylesheet" type="text/css" href="public/source/css/animate.css" media="all">
 
   <!-- jquery-ui.min CSS  -->
-  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="public/source/css/jquery-ui.css">
 
 
+<link rel="stylesheet" type="text/css" href="public/source/css/flexslider.css">
+<link href="public/source/css/revolution-slider.css" rel="stylesheet">
 
   <!-- style CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+  <link rel="stylesheet" type="text/css" href="public/source/css/style.css" media="all">
 
   <!-- style CSS -->
-  <link rel="stylesheet" type="text/css" href="css/blog.css" media="all">
+  <link rel="stylesheet" type="text/css" href="public/source/css/blog.css" media="all">
 </head>
 
 <body class="blog_fullwidth_page">
@@ -116,7 +118,7 @@
               <!-- Header Logo -->
               <div class="logo">
                 <a title="e-commerce" href="index.html">
-                  <img alt="responsive theme logo" src="images/logo.png">
+                  <img alt="responsive theme logo" src="public/source/images/logo.png">
                 </a>
               </div>
               <!-- End Header Logo -->
@@ -613,7 +615,7 @@
           <div class="col-sm-6 col-md-4 col-xs-12 col-lg-3">
             <div class="footer-logo">
               <a href="index-2.html">
-                <img src="images/footer-logo.png" alt="fotter logo">
+                <img src="public/source/images/footer-logo.png" alt="fotter logo">
               </a>
             </div>
             <p>Lorem Ipsum is simply dummy text of the print and typesetting industry.</p>
@@ -731,22 +733,22 @@
                 <ul>
                   <li>
                     <a href="#">
-                      <img title="Visa" alt="Visa" src="images/visa.png">
+                      <img title="Visa" alt="Visa" src="public/source/images/visa.png">
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img title="Paypal" alt="Paypal" src="images/paypal.png">
+                      <img title="Paypal" alt="Paypal" src="public/source/images/paypal.png">
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img title="Discover" alt="Discover" src="images/discover.png">
+                      <img title="Discover" alt="Discover" src="public/source/images/discover.png">
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <img title="Master Card" alt="Master Card" src="images/master-card.png">
+                      <img title="Master Card" alt="Master Card" src="public/source/images/master-card.png">
                     </a>
                   </li>
                 </ul>
@@ -764,23 +766,24 @@
   <!-- JS -->
 
   <!-- jquery js -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="public/source/js/jquery.min.js"></script>
 
   <!-- bootstrap js -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="public/source/js/bootstrap.min.js"></script>
 
   <!-- owl.carousel.min js -->
-  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="public/source/js/owl.carousel.min.js"></script>
 
   <!-- bxslider js -->
-  <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+  <script type="text/javascript" src="public/source/js/jquery.bxslider.js"></script>
 
   <!-- flexslider js -->
-  <script type="text/javascript" src="js/jquery.flexslider.js"></script>
+  <script type="text/javascript" src="public/source/js/jquery.flexslider.js"></script>
 
+<script type="text/javascript" src="public/source/js/revolution-slider.js"></script>
 
   <!-- megamenu js -->
-  <script type="text/javascript" src="js/megamenu.js"></script>
+  <script type="text/javascript" src="public/source/js/megamenu.js"></script>
   <script type="text/javascript">
     /* <![CDATA[ */
     var mega_menu = '0';
@@ -789,21 +792,40 @@
   </script>
 
   <!-- jquery.mobile-menu js -->
-  <script type="text/javascript" src="js/mobile-menu.js"></script>
+  <script type="text/javascript" src="public/source/js/mobile-menu.js"></script>
 
   <!--jquery-ui.min js -->
-  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="public/source/js/jquery-ui.js"></script>
 
   <!-- main js -->
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="public/source/js/main.js"></script>
 
   <!-- countdown js -->
-  <script type="text/javascript" src="js/countdown.js"></script>
+  <script type="text/javascript" src="public/source/js/countdown.js"></script>
 
   <!--cloud-zoom js -->
-  <script type="text/javascript" src="js/cloud-zoom.js"></script>
+  <script type="text/javascript" src="public/source/js/cloud-zoom.js"></script>
 
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('.tp-banner').revolution(
+        {
+          delay: 9000,
+          startwidth: 1170,
+          startheight: 530,
+          hideThumbs: 10,
 
+          navigationType: "bullet",
+          navigationStyle: "preview1",
+
+          hideArrowsOnMobile: "on",
+
+          touchenabled: "on",
+          onHoverStop: "on",
+          spinner: "spinner4"
+        });
+    });
+  </script>
 </body>
 
 
