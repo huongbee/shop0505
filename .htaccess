@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteRule ^trang-chu$ index.php
+RewriteRule ^index.html$ index.php
+
+
+RewriteRule ^([a-z0-9-]+)$ type.php?url=$1
+
+RewriteRule ^/?public\/htaccess.txt$ - [F,L]
+
+ErrorDocument 404 /shop0505/404.html
+ErrorDocument 500 /shop0505/404.html
+ErrorDocument 403 /shop0505/404.html
+
+
+
+ 
