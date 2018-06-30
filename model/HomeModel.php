@@ -24,6 +24,7 @@ class HomeModel extends DBConnect{
                 GROUP BY p.id
                 ORDER BY soluong DESC 
                 LIMIT 0,10";
+                
         return $this->loadMoreRows($sql);
     }
 }
