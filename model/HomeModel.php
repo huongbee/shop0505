@@ -8,7 +8,11 @@ class HomeModel extends DBConnect{
     }
 
     function selectSpecialProduct(){
-        $sql = "SELECT * FROM products WHERE status=1"; 
+        $sql = "SELECT p.*,u.url 
+                FROM products p
+                INNER JOIN page_url u
+                ON p.id_url = u.id
+                WHERE status=1"; 
         return $this->loadMoreRows($sql);
     }
 }

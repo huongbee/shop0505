@@ -68,7 +68,7 @@
                                 <div class="icon-new-label new-right">New</div>
                                 <?php endif?>
                                 <div class="pr-img-area">
-                                  <a title="Ipsums Dolors Untra" href="single_product.html">
+                                  <a title="Ipsums Dolors Untra" href="<?=$p->url?>-<?=$p->id?>.html">
                                     <figure>
                                       <img class="first-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                       <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
@@ -83,7 +83,7 @@
                               <div class="item-info">
                                 <div class="info-inner">
                                   <div class="item-title">
-                                    <a title="Ipsums Dolors Untra" href="single_product.html"><?=$p->name?></a>
+                                    <a title="Ipsums Dolors Untra" href="<?=$p->url?>-<?=$p->id?>.html"><?=$p->name?></a>
                                   </div>
                                   <div class="item-content">
                                     <div class="item-price">
