@@ -8,10 +8,12 @@ class HomeController extends BaseController{
         $slide = $model->selectSlide();
         $specialProduct = $model->selectSpecialProduct();
         $bestSeller = $model->selectBestSeller();
+        $promotionProducts = $model->selectPromotionProducts();
         $data = [
             'slide'=>$slide,
             'specialProduct' => $specialProduct,
-            'bestSeller'=>$bestSeller
+            'bestSeller'=>$bestSeller,
+            'promotionProducts'=>$promotionProducts
         ];
         //print_r($specialProduct);
         return $this->loadView('home',$data);
