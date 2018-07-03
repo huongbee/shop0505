@@ -13,7 +13,7 @@ class TypeModel extends DBConnect{
         WHERE u.url = "phu-kien"
      */
     // function selectProductByType($type){
-    //     $sql = "SELECT *  
+    //     $sql = "SELECT p.* , u2.url 
     //             FROM products p 
     //             INNER JOIN page_url u2 
     //             ON u2.id = p.id_url
@@ -25,8 +25,9 @@ class TypeModel extends DBConnect{
     //             )";
     //     return $this->loadMoreRows($sql);
     // }
+    
     function selectProductByType($type){
-        $sql = "SELECT *  
+        $sql = "SELECT p.* , u2.url
                 FROM products p 
                 INNER JOIN page_url u2 
                 ON u2.id = p.id_url

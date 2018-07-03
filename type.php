@@ -1,7 +1,7 @@
 <?php
-echo $_GET['url'];
+//echo $_GET['url'];
 
-// include_once "controller/TypeController.php";
-// $c = new TypeController;
-// return $c->getType();
+include_once "controller/TypeController.php";
+$c = new TypeController;
+return $c->getType();
 ?>
