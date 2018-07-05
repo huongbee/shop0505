@@ -5,9 +5,15 @@ require_once "model/TypeModel.php";
 class TypeController extends BaseController{
     function getType(){
         $url = $_GET['url'];
-        //echo $type;die;
+        $qty = 9;
+        $page = 1;
+        if(isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0){
+            $page = $_GET['page'];
+        };
+        $position = ($page - 1)*$qty;
+
         $model = new TypeModel;
-        $products = $model->selectProductByType($url);
+        $products = $model->selectProductByType($url,$position, $qty);
         $type = $model->selectTypeByUrl($url);
         //print_r($type);die;
         $data = [

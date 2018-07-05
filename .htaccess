@@ -5,6 +5,8 @@ RewriteRule ^index.html$ index.php
 
 
 RewriteRule ^([a-z0-9-]+)$ type.php?url=$1
+RewriteRule ^([a-z0-9-]+)/page/([0-9a-z-]+)$ type.php?url=$1&page=$2
+
 RewriteRule ^([a-z0-9-\(\)]+)-([0-9]+).html$ detail.php?url=$1&id=$2
 
 RewriteRule ^/?public\/htaccess.txt$ - [F,L]
