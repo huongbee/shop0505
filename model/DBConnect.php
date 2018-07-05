@@ -11,7 +11,12 @@ class DBConnect{
     function setStatement($sql,$data=[]){
         $stmt = $this->connect->prepare($sql);
         for($i=0; $i<count($data);$i++){
-            $stmt->bindValue($i+1, $data[$i]);
+            if(is_int($data[$i])){
+                $stmt->bindValue($i+1, (int)trim($data[$i]),PDO::PARAM_INT);
+            }
+            else{
+                $stmt->bindValue($i+1, trim($data[$i]));
+            }
         }
         return $stmt;
     }

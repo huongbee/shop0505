@@ -12,25 +12,8 @@ class TypeModel extends DBConnect{
         ON u2.id = p.id_url
         WHERE u.url = "phu-kien"
      */
-    function selectProductByType($type,$position,$qty){
-        $sql = "SELECT p.* , u2.url 
-                FROM products p 
-                INNER JOIN page_url u2 
-                ON u2.id = p.id_url
-                WHERE p.id_type = (SELECT c.id
-                    FROM `categories` c 
-                    INNER JOIN page_url u
-                    ON u.id = c.id_url
-                    WHERE u.url = '$type'
-                )
-                LIMIT $position,$qty";
-
-        //echo $sql; die;
-        return $this->loadMoreRows($sql);
-    }
-
-    // function selectProductByType($type, $position, $qty){
-    //     $sql = "SELECT p.* , u2.url
+    // function selectProductByType($type,$position,$qty){
+    //     $sql = "SELECT p.* , u2.url 
     //             FROM products p 
     //             INNER JOIN page_url u2 
     //             ON u2.id = p.id_url
@@ -38,10 +21,31 @@ class TypeModel extends DBConnect{
     //                 FROM `categories` c 
     //                 INNER JOIN page_url u
     //                 ON u.id = c.id_url
-    //                 WHERE u.url = ?)
-    //             LIMIT ?,?";
-    //     return $this->loadMoreRows($sql,[$type,$position,$qty]);
+    //                 WHERE u.url = '$type'
+    //             )
+    //             LIMIT $position,$qty";
+
+    //     //echo $sql; die;
+    //     return $this->loadMoreRows($sql);
     // }
+
+    function selectProductByType($type, $position=-1, $qty=-1){
+        $sql = "SELECT p.* , u2.url
+                FROM products p 
+                INNER JOIN page_url u2 
+                ON u2.id = p.id_url
+                WHERE p.id_type = (SELECT c.id
+                    FROM `categories` c 
+                    INNER JOIN page_url u
+                    ON u.id = c.id_url
+                    WHERE u.url = ?) ";
+        if($position>=0 || $qty>=0){
+            $sql .= "LIMIT ?,?";
+            return $this->loadMoreRows($sql,[$type,$position,$qty]);
+        }
+        return $this->loadMoreRows($sql,[$type]);
+    }
+
     function selectTypeByUrl($url){
         $sql = "SELECT c.name
                 FROM `categories` c 
