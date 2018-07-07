@@ -2,6 +2,7 @@
 require_once "BaseController.php";
 require_once "model/TypeModel.php";
 require_once "Helpers/Pager.php";
+require_once "model/BaseModel.php";
 
 class TypeController extends BaseController{
     function getType(){
@@ -22,10 +23,16 @@ class TypeController extends BaseController{
        
         $type = $model->selectTypeByUrl($url);
         //print_r($type);die;
+
+        $baseModel = new BaseModel;
+        $categories = $baseModel->selectMenu();
+        // print_r($categories);die;
+
         $data = [
             'products' => $products,
             'nameType' => $type->name,
-            'showPagination' => $showPagination
+            'showPagination' => $showPagination,
+            'categories' => $categories
         ];
 
 
