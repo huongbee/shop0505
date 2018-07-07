@@ -230,8 +230,8 @@
                     <ul class="check-box-list">
                     <?php foreach($data['categories'] as $categories):?>  
                       <li>
-                        <input type="checkbox" id="jtv1" name="jtvc">
-                        <label for="jtv1">
+                        <input type="checkbox" id="jtv<?=$categories->id?>" name="jtvc">
+                        <label for="jtv<?=$categories->id?>"  class="categories-check-box">
                           <span class="button"></span><?=$categories->name?>
                           <span class="count">(<?=$categories->soluong?>)</span>
                         </label>
@@ -449,3 +449,19 @@
       </div>
     </div>
     <!-- Main Container End -->
+<script type="text/javascript" src="public/source/js/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.categories-check-box').click(function(){
+      if(!$(this).hasClass('checked')){
+        console.log(122)
+        $(this).addClass('checked')
+      
+      }
+      else{
+        $(this).removeClass('checked')
+      }
+      
+    })
+  })
+</script>
