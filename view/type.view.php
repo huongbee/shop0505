@@ -231,7 +231,7 @@
                     <?php foreach($data['categories'] as $categories):?>  
                       <li>
                         <input type="checkbox" id="jtv<?=$categories->id?>" name="jtvc">
-                        <label for="jtv<?=$categories->id?>"  class="categories-check-box">
+                        <label for="jtv<?=$categories->id?>"  class="categories-check-box" data-id="<?=$categories->id?>">
                           <span class="button"></span><?=$categories->name?>
                           <span class="count">(<?=$categories->soluong?>)</span>
                         </label>
@@ -454,9 +454,22 @@
   $(document).ready(function(){
     $('.categories-check-box').click(function(){
       if(!$(this).hasClass('checked')){
-        console.log(122)
         $(this).addClass('checked')
-      
+        var idType = $(this).attr('data-id')
+        $.ajax({
+          url: "http://localhost/shop0505/ajax/show-product.php",
+          type: "GET",
+          data:{
+            id: idType // $_GET['id']
+          },
+          success:function(responseFromPHP){
+            console.log(responseFromPHP)
+          },
+          error:function(){
+            console.log("error!!!")
+          }
+
+        })
       }
       else{
         $(this).removeClass('checked')
