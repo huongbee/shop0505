@@ -454,11 +454,13 @@
 <script type="text/javascript" src="public/source/js/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
+    var oldContent = $('#new-product').html()
     $('.categories-check-box').click(function(){
+
       if(!$(this).hasClass('checked')){
         $(this).addClass('checked')
         var idType = $(this).attr('data-id')
-        var oldContent = $('#new-product').html()
+        
         $.ajax({
           url: "http://localhost/shop0505/show-product.php",
           type: "GET",
@@ -485,9 +487,10 @@
         var idType = $(this).attr('data-id')
         $('#type-'+idType).remove()
         $(this).removeClass('checked')
-        if( $('#new-product').is(':empty') ) {
-        $('#new-product').html(oldContent)
-      }
+        if($.trim($('#new-product').html())== '' ) {
+          $('#new-product').html(oldContent)
+          $('#new-product').addClass('shop-inner')
+        }
       }
       
       
