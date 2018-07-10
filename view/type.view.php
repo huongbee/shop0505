@@ -457,7 +457,7 @@
         $(this).addClass('checked')
         var idType = $(this).attr('data-id')
         $.ajax({
-          url: "http://localhost/shop0505/ajax/show-product.php",
+          url: "http://localhost/shop0505/show-product.php",
           type: "GET",
           data:{
             id: idType // $_GET['id']

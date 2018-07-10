@@ -38,6 +38,12 @@ class TypeController extends BaseController{
 
         return $this->loadView('type',$data);
     }
+    function getProductsByTypeAjax(){
+        $idType = $_GET['id'];
+        $model = new TypeModel;
+        $products = $model->selectTypeById($idType);
+        print_r($products);
+    }
 }
 
 
