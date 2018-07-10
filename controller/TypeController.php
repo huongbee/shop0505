@@ -41,7 +41,7 @@ class TypeController extends BaseController{
     function getProductsByTypeAjax(){
         $idType = $_GET['id'];
         $model = new TypeModel;
-        $products = $model->selectTypeById($idType);
+        $products = $model->selectProductsByType($idType);
         print_r($products);
     }
 }
