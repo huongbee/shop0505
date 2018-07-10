@@ -1,6 +1,6 @@
-<div class="product-grid-area">
+<div class="product-grid-area" id="type-<?=$data['idType']?>">
     <ul class="products-grid">
-        <?php foreach($data as $p):?>
+        <?php foreach($data['products'] as $p):?>
         <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
             <div class="product-item">
                 <div class="item-inner">

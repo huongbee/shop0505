@@ -458,6 +458,7 @@
       if(!$(this).hasClass('checked')){
         $(this).addClass('checked')
         var idType = $(this).attr('data-id')
+        var oldContent = $('#new-product').html()
         $.ajax({
           url: "http://localhost/shop0505/show-product.php",
           type: "GET",
@@ -478,10 +479,17 @@
           }
 
         })
+        
       }
       else{
+        var idType = $(this).attr('data-id')
+        $('#type-'+idType).remove()
         $(this).removeClass('checked')
+        if( $('#new-product').is(':empty') ) {
+        $('#new-product').html(oldContent)
       }
+      }
+      
       
     })
   })
