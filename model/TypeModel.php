@@ -54,7 +54,7 @@ class TypeModel extends DBConnect{
                 WHERE u.url = ?";
         return $this->loadOneRow($sql,[$url]);
     }
-    function selectTypeById($id){
+    function selectProductsByType($id){
         $sql = "SELECT p.*, u.url
                 FROM `categories` c 
                 INNER JOIN products p
