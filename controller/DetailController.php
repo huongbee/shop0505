@@ -16,7 +16,7 @@ class DetailController extends BaseController{
         $data = [
             'product' => $product
         ];
-        return $this->loadView('detail');
+        return $this->loadView('detail',$data);
     }
 }
 
