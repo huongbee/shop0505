@@ -74,7 +74,7 @@
                                       <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                     </figure>
                                   </a>
-                                  <button type="button" class="add-to-cart-mt">
+                                  <button type="button" class="add-to-cart-mt" data-id="<?=$p->id?>">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span> Add to Cart</span>
                                   </button>
@@ -135,7 +135,7 @@
                                       <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                     </figure>
                                   </a>
-                                  <button type="button" class="add-to-cart-mt">
+                                  <button type="button" class="add-to-cart-mt" data-id="<?=$p->id?>">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span> Add to Cart</span>
                                   </button>
@@ -210,7 +210,7 @@
                             <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                           </figure>
                         </a>
-                        <button type="button" class="add-to-cart-mt">
+                        <button type="button" class="add-to-cart-mt" data-id="<?=$p->id?>">
                           <i class="fa fa-shopping-cart"></i>
                           <span> Add to Cart</span>
                         </button>
@@ -484,3 +484,12 @@
       </div>
     </div>
     <!-- category-area end -->
+    <script type="text/javascript" src="public/source/js/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.add-to-cart-mt').click(function(){
+          var idSP = $(this).attr('data-id')
+          console.log(idSP)
+        })
+    })
+    </script>

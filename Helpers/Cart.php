@@ -2,13 +2,11 @@
 
 class Cart
 {
-	public $items = []; //2 : a:3: 10=>30, b:4:20/15 => 80/60
-	public $totalQty = 0;  //7
-	public $totalPrice = 0; //110
-	public $promtPrice = 0; //90
+	public $items = []; 
+	public $totalQty = 0;	
+	public $totalPrice = 0;
+	public $promtPrice = 0;
 
-	//4:10
-    
 	public function __construct($oldCart=null){
 		if($oldCart){
 			$this->items = $oldCart->items;
@@ -78,7 +76,7 @@ class Cart
 		$this->items[$id]['qty']--;
 		$this->items[$id]['price'] -= $this->items[$id]['item']->price;
 		$this->items[$id]['discountPrice'] -= $this->items[$id]['item']->promotion_price;
-		
+
 		$this->totalQty--;
 		$this->totalPrice = ($this->totalPrice - $this->items[$id]['item']->price);
 		$this->promtPrice = ($this->promtPrice - $this->items[$id]['item']->promotion_price);
