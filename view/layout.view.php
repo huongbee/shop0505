@@ -45,8 +45,8 @@
   <link rel="stylesheet" type="text/css" href="public/source/css/jquery-ui.css">
 
 
-<link rel="stylesheet" type="text/css" href="public/source/css/flexslider.css">
-<link href="public/source/css/revolution-slider.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="public/source/css/flexslider.css">
+  <link href="public/source/css/revolution-slider.css" rel="stylesheet">
 
   <!-- style CSS -->
   <link rel="stylesheet" type="text/css" href="public/source/css/style.css" media="all">
@@ -194,7 +194,9 @@
                     <?php foreach($menu as $m):?>
                     <li class="nosub">
                       <a href="<?=$m->url?>">
-                        <i class="icon fa <?=$m->icon?> fa-fw"></i><?=$m->name?></a>
+                        <i class="icon fa <?=$m->icon?> fa-fw"></i>
+                        <?=$m->name?>
+                      </a>
                     </li>
                     <?php endforeach?>
                   </ul>
@@ -248,14 +250,14 @@
       </div>
     </nav>
     <!-- end nav -->
-  
-  <!-- Main Container -->
+
+    <!-- Main Container -->
     <?php
         include_once "view/$view.view.php";
     ?>
-   <!-- Footer -->
-  
-   <footer>
+    <!-- Footer -->
+
+    <footer>
       <div class="footer-newsletter">
         <div class="container">
           <div class="row">
@@ -458,6 +460,21 @@
 
   <!-- End Footer -->
 
+  <div id="Notifycation" class="modal fade" role="dialog">
+    <div class="modal-dialog model-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Đã thêm <b id="name-product">....</b> vào giỏ hàng</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- JS -->
 
   <!-- jquery js -->
@@ -475,7 +492,7 @@
   <!-- flexslider js -->
   <script type="text/javascript" src="public/source/js/jquery.flexslider.js"></script>
 
-<script type="text/javascript" src="public/source/js/revolution-slider.js"></script>
+  <script type="text/javascript" src="public/source/js/revolution-slider.js"></script>
 
   <!-- megamenu js -->
   <script type="text/javascript" src="public/source/js/megamenu.js"></script>
@@ -501,7 +518,7 @@
   <!--cloud-zoom js -->
   <script type="text/javascript" src="public/source/js/cloud-zoom.js"></script>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     jQuery(document).ready(function () {
       jQuery('.tp-banner').revolution(
         {
@@ -520,6 +537,28 @@
           spinner: "spinner4"
         });
     });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $('.add-to-cart-mt').click(function () {
+        var idSP = $(this).attr('data-id')
+        $.ajax({
+          type: "POST",
+          url: "cart.php",
+          data: {
+            id: idSP //$_POST['id']
+          },
+          success: function (res) {
+            $('#name-product').html(res)
+            //$('#Notifycation').model('show')
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        })
+      })
+    })
   </script>
 </body>
 

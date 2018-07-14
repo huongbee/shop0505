@@ -484,24 +484,3 @@
       </div>
     </div>
     <!-- category-area end -->
-    <script type="text/javascript" src="public/source/js/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $('.add-to-cart-mt').click(function(){
-          var idSP = $(this).attr('data-id')
-          $.ajax({
-            type:"POST",
-            url: "cart.php",
-            data:{
-              id: idSP //$_POST['id']
-            },
-            success:function(res){
-              console.log(res)
-            },
-            error:function(error){
-              console.log(error)
-            }
-          })
-        })
-    })
-    </script>
