@@ -460,12 +460,12 @@
 
   <!-- End Footer -->
 
-  <div id="Notifycation" class="modal fade" role="dialog">
+  <div id="notifycation" class="modal fade" role="dialog">
     <div class="modal-dialog model-sm">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-body">
-          <p>Đã thêm <b id="name-product">....</b> vào giỏ hàng</p>
+          <p style="font-size:18px">Đã thêm <b id="name-product">....</b> vào giỏ hàng</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -551,7 +551,7 @@
           },
           success: function (res) {
             $('#name-product').html(res)
-            //$('#Notifycation').model('show')
+            $('#notifycation').modal('show')
           },
           error: function (error) {
             console.log(error)

@@ -18,7 +18,7 @@
                                     <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                 </figure>
                             </a>
-                            <button type="button" class="add-to-cart-mt">
+                            <button type="button" class="add-to-cart-mt" data-id="<?=$p->id?>">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span> Add to Cart</span>
                             </button>
@@ -62,3 +62,25 @@
         <?php endforeach?>
     </ul>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('.add-to-cart-mt').click(function () {
+            var idSP = $(this).attr('data-id')
+            $.ajax({
+            type: "POST",
+            url: "cart.php",
+            data: {
+                id: idSP //$_POST['id']
+            },
+            success: function (res) {
+                $('#name-product').html(res)
+                $('#notifycation').modal('show')
+            },
+            error: function (error) {
+                console.log(error)
+            }
+            })
+        })
+    })
+  </script>
