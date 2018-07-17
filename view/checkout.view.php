@@ -1,3 +1,4 @@
+<script src="public/ckeditor/ckeditor.js"></script>
 <section class="main-container col2-right-layout">
   <div class="main container">
     <div class="row">
@@ -44,8 +45,8 @@
                         <div class="col-xs-12">
 
                             <label for="address" class="required">Ghi chú</label>
-                            <textarea class="input form-control" name="" rows=6></textarea>
-
+                            <textarea class="input form-control" name="" rows="6" id="note"></textarea>
+                            
                         </div><!--/ [col] -->
 
                     </li><!-- / .row -->
@@ -62,3 +63,6 @@
     </div>
   </div>
   </section>
+<script>
+    CKEDITOR.replace('note') //id:note
+</script>
