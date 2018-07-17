@@ -4,7 +4,7 @@
         <div class="cart">
           
           <div class="page-content page-order"><div class="page-title">
-            <h2>Shopping Cart</h2>
+            <h2>Giỏ hàng của bạn</h2>
           </div>
             
             
@@ -13,64 +13,79 @@
                 <table class="table table-bordered cart_summary">
                   <thead>
                     <tr>
-                      <th class="cart_product">Product</th>
-                      <th>Description</th>
-                      <th>Avail.</th>
-                      <th>Unit price</th>
-                      <th>Qty</th>
-                      <th>Total</th>
+                      <th class="cart_product">Sản phẩm</th>
+                      <th>Tên sản phẩm</th>
+                      <th>Đơn giá</th>
+                      <th>Số lượng</th>
+                      <th>Tổng tiền</th>
                       <th  class="action"><i class="fa fa-trash-o"></i></th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $cart = $data;
+                    foreach($cart->items as $c):
+                    ?>
                     <tr>
-                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img01.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Red</a></small><br>
-                        <small><a href="#">Size : M</a></small></td>
-                      <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="1"></td>
-                      <td class="price"><span>$49.88</span></td>
+                      <td class="cart_product">
+                        <a href="#">
+                          <img src="public/source/images/products/<?=$c['item']->image?>" alt="<?=$c['item']->name?>">
+                        </a>
+                      </td>
+                      <td style="width:20%">
+                        <?=$c['item']->name?>
+                      </td>
+                      <td class="price"><span>
+                        <?php
+                        if($c['item']->price == $c['item']->promotion_price){
+                          echo number_format($c['item']->price);
+                        }
+                        else{
+                          echo "<del style='color:#777777'>".number_format($c['item']->price).'</del>';
+                          echo "<br>";
+                          echo number_format($c['item']->promotion_price);
+                        }
+                        ?>
+                        
+                      </span></td>
+                      <td class="qty"><input class="form-control input-sm" type="text" value="<?=$c['qty']?>"></td>
+                      <td class="price"><span>
+                        <?php
+                          if($c['price'] == $c['discountPrice']){
+                            echo number_format($c['discountPrice']);
+                          }
+                          else{
+                            echo "<del style='color:#777777'>".number_format($c['price']).'</del>';
+                            echo "<br>";
+                            echo number_format($c['discountPrice']);
+                          }
+                        ?>
+                      </span></td>
+
                       <td class="action"><a href="#"><i class="icon-close"></i></a></td>
                     </tr>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img02.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Green</a></small><br>
-                        <small><a href="#">Size : XL</a></small></td>
-                      <td class="availability out-of-stock"><span class="label">No stock</span></td>
-                      <td class="price"><span>$00.00</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="0"></td>
-                      <td class="price"><span>00.00</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
-                    </tr>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="public/source/images/products/img03.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Blue</a></small><br>
-                        <small><a href="#">Size : S</a></small></td>
-                      <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$99.00</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="2"></td>
-                      <td class="price"><span>$188.00</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
-                    </tr>
+                   <?php endforeach ?>
                   </tbody>
                   <tfoot>
                     <tr>
                       <td colspan="2" rowspan="2"></td>
-                      <td colspan="3">Total products (tax incl.)</td>
-                      <td colspan="2">$237.88 </td>
+                      <td colspan="3">Tổng tiền chưa km</td>
+                      <td colspan="2"><?=number_format($cart->totalPrice)?> </td>
                     </tr>
                     <tr>
-                      <td colspan="3"><strong>Total</strong></td>
-                      <td colspan="2"><strong>$237.88 </strong></td>
+                      <td colspan="3"><strong>Tổng tiền thanh toán</strong></td>
+                      <td colspan="2"><strong><?=number_format($cart->promtPrice)?> </strong></td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
+              <div class="cart_navigation"> 
+                <a class="continue-btn" href="./"><i class="fa fa-arrow-left"> </i>&nbsp; 
+                  Tiếp tực mua sắm
+                </a> 
+                <a class="checkout-btn" href="checkout.php"><i class="fa fa-check"></i> 
+                  Đặt hàng
+                </a> 
+              </div>
             </div>
           </div>
         </div>

@@ -466,6 +466,9 @@
       <div class="modal-content">
         <div class="modal-body">
           <p style="font-size:18px">Đã thêm <b id="name-product">....</b> vào giỏ hàng</p>
+          <div>
+            <a href="shopping-cart.php">Xem giỏ hàng</a>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

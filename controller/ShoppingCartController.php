@@ -7,7 +7,11 @@ session_start();
 class ShoppingCartController extends BaseController{
     
     function getShoppingCart(){
-        return $this->loadView('shopping-cart');
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new  Cart($oldCart);
+        // print_r($cart);
+        // die;
+        return $this->loadView('shopping-cart',$cart);
     }
 
     function addToCart(){
