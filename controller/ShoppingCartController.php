@@ -12,10 +12,10 @@ class ShoppingCartController extends BaseController{
 
     function addToCart(){
         $id = $_POST['id'];
-        
+        $qty = isset($_POST['qty']) ? $_POST['qty'] : 1;
+
         $model = new ShoppingCartModel;
         $product = $model->findProductById($id);
-        $qty = 1;
         // a>b ? a : b
         $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
         $cart = new Cart($oldCart);

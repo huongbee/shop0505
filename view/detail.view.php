@@ -47,6 +47,7 @@
                           <i class="fa fa-minus">&nbsp;</i>
                         </div>
                         <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                        <input id="txtIdSp" type="hidden" value="<?=$data['product']->id?>">
                         <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
                           class="inc qtybutton">
                           <i class="fa fa-plus">&nbsp;</i>
@@ -142,3 +143,29 @@
       </div>
     </section>
     <!-- Related Product Slider End -->
+
+<script type="text/javascript" src="public/source/js/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.pro-add-to-cart').click(function(){
+        //var idSP = "<?=$_GET['id']?>"
+        var idSP = $('#txtIdSp').val()
+        var soluong = $('.qty').val()
+        $.ajax({
+          type: "POST",
+          url: "cart.php",
+          data: {
+            id: idSP,
+            qty: soluong
+          },
+          success: function (res) {
+            $('#name-product').html(res)
+            $('#notifycation').modal('show')
+          },
+          error: function (error) {
+            console.log(error)
+          }
+        })
+    })
+  })
+</script>
