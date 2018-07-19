@@ -53,7 +53,7 @@
                       </span>
                     </td>
                     <td class="qty">
-                      <input class="form-control input-sm" type="text" value="<?=$c['qty']?>">
+                      <input class="form-control input-sm txtQty"  type="text" value="<?=$c['qty']?>">
                     </td>
                     <td class="price">
                       <span>
@@ -139,5 +139,18 @@
         }
       })
     })
+
+    
+    $('.txtQty').keyup(function() {
+      var soluong = $(this).val()
+      clearTimeout($.data(this, 'timer'));
+      var wait = setTimeout(function(){
+        $.ajax({
+          
+        })
+      }, 2000);
+      $(this).data('timer', wait);
+    });
+
   })
 </script>
