@@ -28,7 +28,7 @@
                   <?php $cart = $data;
                     foreach($cart->items as $c):
                     ?>
-                  <tr>
+                  <tr id="product-<?=$c['item']->id?>">
                     <td class="cart_product">
                       <a href="#">
                         <img src="public/source/images/products/<?=$c['item']->image?>" alt="<?=$c['item']->name?>">
@@ -80,7 +80,7 @@
                   <tr>
                     <td colspan="2" rowspan="2"></td>
                     <td colspan="3">Tổng tiền chưa km</td>
-                    <td colspan="2">
+                    <td colspan="2" id="totalPrice">
                       <?=number_format($cart->totalPrice)?>
                     </td>
                   </tr>
@@ -89,7 +89,7 @@
                       <strong>Tổng tiền thanh toán</strong>
                     </td>
                     <td colspan="2">
-                      <strong>
+                      <strong id="promtPrice">
                         <?=number_format($cart->promtPrice)?>
                       </strong>
                     </td>
@@ -126,8 +126,13 @@
           id:idSP,
           action:"delete"
         },
+        dataType:"JSON",
         success:function(res){
-          console.log(res)
+          $('#promtPrice').html(res.promtPrice)
+          $('#totalPrice').html(res.totalPrice )
+          $('#product-'+idSP).hide(500)
+          // console.log(JSON.parse(res))
+          // console.log(JSON.parse(res).promtPrice)
         },
         error:function(){
           console.log("error")

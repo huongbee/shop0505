@@ -37,8 +37,8 @@ class ShoppingCartController extends BaseController{
         $_SESSION['cart'] = $cart;
 
         echo json_encode([
-            'totalPrice'=>$cart->totalPrice,
-            'promtPrice'=> $cart->promtPrice
+            'totalPrice'=>number_format($cart->totalPrice),
+            'promtPrice'=> number_format($cart->promtPrice)
         ]);
     }
 }
