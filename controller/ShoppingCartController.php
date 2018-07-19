@@ -28,6 +28,19 @@ class ShoppingCartController extends BaseController{
         $_SESSION['cart'] = $cart;
         echo $product->name;
     }
+    function deleteCart(){
+        $id = $_POST['id'];
+
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        $_SESSION['cart'] = $cart;
+
+        echo json_encode([
+            'totalPrice'=>$cart->totalPrice,
+            'promtPrice'=> $cart->promtPrice
+        ]);
+    }
 }
 
 
