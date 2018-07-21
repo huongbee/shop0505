@@ -40,6 +40,10 @@ class DBConnect{
         $c = $stmt->execute();
         return $c ? $stmt->fetchAll(PDO::FETCH_OBJ) : false;
     }
+
+    function getIdInserted(){
+        return $this->connect->lastInsertId();
+    }
 }
 
 
