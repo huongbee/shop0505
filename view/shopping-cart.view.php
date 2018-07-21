@@ -53,10 +53,10 @@
                       </span>
                     </td>
                     <td class="qty">
-                      <input class="form-control input-sm txtQty"  type="text" value="<?=$c['qty']?>">
+                      <input class="form-control input-sm txtQty" type="text" data-id="<?=$c['item']->id?>" value="<?=$c['qty']?>">
                     </td>
                     <td class="price">
-                      <span>
+                      <span  id="new-price-<?=$c['item']->id?>">
                         <?php
                           if($c['price'] == $c['discountPrice']){
                             echo number_format($c['discountPrice']);
@@ -143,10 +143,37 @@
     
     $('.txtQty').keyup(function() {
       var soluong = $(this).val()
+      if(soluong==0){
+        alert('So luong > 0')
+        $(this).val(1)
+        $(this).focus()
+        return;
+      }
+      var idSP = $(this).attr('data-id')
       clearTimeout($.data(this, 'timer'));
       var wait = setTimeout(function(){
         $.ajax({
-          
+          url:'cart.php',
+          type:"POST",
+          data:{
+            qty:soluong,
+            id: idSP,
+            action:"update"
+          },
+          dataType:"JSON",
+          success:function(res){
+            $('#totalPrice').html(res.totalPrice)
+            $('#promtPrice').html(res.promtPrice)
+            if(res.discountPrice == res.price){
+              $('#new-price-'+idSP).html(res.discountPrice)
+            }
+            else{
+              $('#new-price-'+idSP).html(`<del style="color:#777777">${res.price}</del><br>${res.discountPrice}`)
+            }
+          },
+          error:function(){
+            console.log('err')
+          }
         })
       }, 2000);
       $(this).data('timer', wait);

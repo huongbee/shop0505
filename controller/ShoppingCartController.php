@@ -41,6 +41,27 @@ class ShoppingCartController extends BaseController{
             'promtPrice'=> number_format($cart->promtPrice)
         ]);
     }
+
+    function updateCart(){
+        $id = $_POST['id'];
+        $qty = $_POST['qty'];
+
+        $model = new ShoppingCartModel;
+        $product = $model->findProductById($id);
+
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        $cart->update($product, $qty);
+        $_SESSION['cart'] = $cart;
+        //print_r($cart);
+        echo json_encode([
+            'totalPrice'=>number_format($cart->totalPrice),
+            'promtPrice'=> number_format($cart->promtPrice),
+            'price' => number_format($cart->items[$id]['price']),
+            'discountPrice' => number_format($cart->items[$id]['discountPrice'])
+        ]);
+    }
+
 }
 
 
