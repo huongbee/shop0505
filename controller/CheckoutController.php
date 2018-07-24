@@ -49,7 +49,7 @@ class CheckoutController extends BaseController{
                 if($check){
 
                     //send email
-
+                    
                     //notification : check email...
                     $_SESSION['success'] = "Vui lòng kiểm tra Email để xác nhận đơn hàng.";
                     //delete session cart
