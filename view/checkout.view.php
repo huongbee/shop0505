@@ -16,6 +16,21 @@
     <?php
     endif
     ?>
+    <?php
+    if(isset($_SESSION['success'])):
+    ?>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="alert alert-success  alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+                ?>
+            </div>
+        </div>
+    <?php
+    endif
+    ?>
     <div class="row">
       <div class="col-main col-sm-12 col-xs-12">
         <div class="page-content checkout-page"><div class="page-title">

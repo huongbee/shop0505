@@ -24,8 +24,9 @@ class ShoppingCartModel extends DBConnect{
 
     function saveBill($idCustomer,$dateOrder,$total,$promtPrice,$paymentMethod,$note,$token, $tokenDate,$status){
         $sql = "INSERT INTO bills
-                (id_customer,date_order,total, promot_price,payment_method,note,token,token_date,status)
+                (id_customer,date_order,total, promt_price,payment_method,note,token,token_date,status)
                 VALUES ($idCustomer,'$dateOrder',$total,$promtPrice,'COD','$note','$token','$tokenDate',0)";
+        //echo $sql;die;
         $check = $this->executeQuery($sql);
         if($check){
             return $this->getIdInserted();

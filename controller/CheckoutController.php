@@ -11,10 +11,6 @@ class CheckoutController extends BaseController{
     }
 
     function postCheckout(){
-        $oldCart = isset($_SESSION['cart']) ?$_SESSION['cart'] :null;
-            $cart = new Cart($oldCart);
-            echo "<pre>";
-            print_r($cart);die;
         $name = $_POST['fullname'];
         $gender = $_POST['gender'];
         $phone = $_POST['phone'];
@@ -40,6 +36,7 @@ class CheckoutController extends BaseController{
             $status = 0; // not verify
 
             $idBill = $model->saveBill($idCustomer,$dateOrder,$total,$promtPrice,$paymentMethod,$note,$token, $tokenDate,$status);
+            //echo $idBill; die;
             if($idBill){
                 //save billdetail
                 foreach($cart->items as $idProduct=>$item){
@@ -57,19 +54,13 @@ class CheckoutController extends BaseController{
                     $_SESSION['success'] = "Vui lòng kiểm tra Email để xác nhận đơn hàng.";
                     //delete session cart
                     // unset($_SESSION['cart']);
+                    header('Location:checkout.php');
+                    return;
                 }
             }
-            else{
-                $_SESSION['error'] = "Có lỗi xảy ra, vui lòng thử lại.";
-            }
         }
-        else{
-            $_SESSION['error'] = "Có lỗi xảy ra, vui lòng thử lại.";
-        }
+        $_SESSION['error'] = "Có lỗi xảy ra, vui lòng thử lại.";
         header('Location:checkout.php');
-
-
-       
     }
 }
 
