@@ -3,6 +3,7 @@ require_once "BaseController.php";
 require_once "model/ShoppingCartModel.php";
 require_once "Helpers/Cart.php";
 require_once "Helpers/functions.php";
+require_once "Helpers/PHPMailer/mailer.php";
 session_start();
 
 class CheckoutController extends BaseController{
@@ -32,7 +33,8 @@ class CheckoutController extends BaseController{
             $paymentMethod = "COD";
             
             $token = createToken();
-            $tokenDate = date('Y-m-d H:i:s',time());
+            $tokenDate = date('Y-m-d H:i:s',time()); //2018-4-5 12:45:25 -> 12345679654
+            $tokenTime = strtotime($tokenDate);
             $status = 0; // not verify
 
             $idBill = $model->saveBill($idCustomer,$dateOrder,$total,$promtPrice,$paymentMethod,$note,$token, $tokenDate,$status);
@@ -48,7 +50,16 @@ class CheckoutController extends BaseController{
                 }
                 if($check){
 
-                    //send email
+                    //send email;
+                    $link = "http://localhost/shop0505/accept-order.php?token=$token&time=$tokenTime";
+
+                    $subject = "Xác nhận đơn hàng DH000$idBill";
+                    $content = "
+                    <p>Chào bạn $name,</p>
+                    <p>Cảm ơn bạn đã đặt hàng, Tổng tiền của đơn hàng là ".number_format($promtPrice)." vnđ </p>
+                    <p>Vui lòng nhấp vào <a href='$link'>liên kết</a> để xác nhận đơn hàng.</p>
+                    ";
+                    sendMail($email,$name,$subject,$content);
                     
                     //notification : check email...
                     $_SESSION['success'] = "Vui lòng kiểm tra Email để xác nhận đơn hàng.";
