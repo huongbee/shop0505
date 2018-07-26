@@ -82,9 +82,18 @@ class CheckoutController extends BaseController{
             $_SESSION['error'] = "Thời hạn xác nhận đơn hàng đã kết thúc, vui lòng đặt hàng lại";
         }
         else{
-            //$bill = 
-            $_SESSION['success'] = "Đơn hàng xác nhận thành công, chúng tôi sẽ sớm liên lạc với bạn.";
+            $model = new ShoppingCartModel;
+            $bill = $model->findBillByToken($token);
+            if($bill){
+                //update
+                $model->updateBill($bill->id);
+                $_SESSION['success'] = "Đơn hàng xác nhận thành công, chúng tôi sẽ sớm liên lạc với bạn.";
+            }
+            else{
+                $_SESSION['error'] = "Liên kết bạn nhập vào chưa đúng, vui lòng kiểm tra lại";
+            }
         }
+        return $this->loadView('notifycation');
     }
 }
 
