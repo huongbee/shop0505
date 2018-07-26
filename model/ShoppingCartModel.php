@@ -39,6 +39,18 @@ class ShoppingCartModel extends DBConnect{
         $sql =  "INSERT INTO bill_detail(id_bill,id_product,quantity, price, discount_price) VALUES ($idBill,$idProduct,$qty,$price,$discountPrice)";
         return $this->executeQuery($sql);
     }   
+
+    function findBillByToken($token){
+        $sql = "SELECT * FROM bills WHERE token='$token'";
+        return $this->loadOneRow($sql);
+    }
+
+    function updateBill($id){
+        $sql = "UPDATE bills 
+                SET status=1, token=NULL,token_date=NULL 
+                WHERE id=$id";
+        return $this->executeQuery($sql);
+    }
 }
 
 ?>

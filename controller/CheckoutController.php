@@ -61,10 +61,9 @@ class CheckoutController extends BaseController{
                     ";
                     sendMail($email,$name,$subject,$content);
                     
-                    //notification : check email...
                     $_SESSION['success'] = "Vui lòng kiểm tra Email để xác nhận đơn hàng.";
                     //delete session cart
-                    // unset($_SESSION['cart']);
+                    unset($_SESSION['cart']);
                     header('Location:checkout.php');
                     return;
                 }
@@ -72,6 +71,20 @@ class CheckoutController extends BaseController{
         }
         $_SESSION['error'] = "Có lỗi xảy ra, vui lòng thử lại.";
         header('Location:checkout.php');
+    }
+
+
+    function acceptOrder(){
+        $token = $_GET['token']; 
+        $time = $_GET['time']; //1532605367
+        $now = strtotime(date('Y-m-d H:i:s',time())); //1532605367
+        if($now - $time > 86400){
+            $_SESSION['error'] = "Thời hạn xác nhận đơn hàng đã kết thúc, vui lòng đặt hàng lại";
+        }
+        else{
+            //$bill = 
+            $_SESSION['success'] = "Đơn hàng xác nhận thành công, chúng tôi sẽ sớm liên lạc với bạn.";
+        }
     }
 }
 

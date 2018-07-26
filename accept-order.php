@@ -1,6 +1,6 @@
 <?php
-echo $_GET['token'];
-
-
+require_once "controller/CheckoutController.php";
+$c = new CheckoutController;
+return $c->acceptOrder();
 
 ?>
